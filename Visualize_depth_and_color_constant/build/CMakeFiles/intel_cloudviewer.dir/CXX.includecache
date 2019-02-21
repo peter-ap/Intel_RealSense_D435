@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/peter/Documents/C++/Intel_RealSense_D435/Visualize_depth_and_color_V2/main.cpp
+/home/peter/Documents/C++/Intel_RealSense_D435/Visualize_depth_and_color_constant/main.cpp
 librealsense2/rs.hpp
 -
 pcl/point_types.h
