@@ -1,5 +1,6 @@
 This repository provides several programs for the Intel Realsense D435
 It includes scripts to:
+
 		-Grab camera images
 		-Grab infrared image
 		-Visualize depth
