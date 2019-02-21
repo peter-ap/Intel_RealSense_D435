@@ -2,6 +2,10 @@
 #include <pcl/point_types.h>
 #include <pcl/filters/passthrough.h>
 #include <pcl/visualization/pcl_visualizer.h>
+#include <math.h>
+
+// parameter maximum distance of 3D scanner
+float max = 10.0;
 
 std::tuple<uint8_t, uint8_t, uint8_t> get_texcolor(rs2::video_frame texture, rs2::texture_coordinate texcoords)
 {
@@ -29,6 +33,9 @@ pcl::PointCloud<pcl::PointXYZRGB>::Ptr points_to_pcl(const rs2::points& points, 
 
 	for (int i = 0; i < points.size(); ++i)
 	{
+		double distance = sqrt(exp(vertices[i].x) + exp(vertices[i].y) + exp(vertices[i].z));
+
+		if(abs(distance) < max){
 		cloud->points[i].x = vertices[i].x;
 		cloud->points[i].y = vertices[i].y;
 		cloud->points[i].z = vertices[i].z;
@@ -39,6 +46,8 @@ pcl::PointCloud<pcl::PointXYZRGB>::Ptr points_to_pcl(const rs2::points& points, 
 		cloud->points[i].r = std::get<0>(current_color);
 		cloud->points[i].g = std::get<1>(current_color);
 		cloud->points[i].b = std::get<2>(current_color);
+	}
+	else{}
 	}
 
 	return cloud;
