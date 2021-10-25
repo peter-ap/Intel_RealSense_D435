@@ -1,4 +1,4 @@
-This repository provides several programs for the Intel Realsense D435
+This repository provides several programs for the Intel Realsense D435 and (apparently) the L515 also.
 It includes scripts to:
 
 		-Grab camera images
